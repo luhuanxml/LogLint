@@ -1,5 +1,4 @@
 apply plugin: 'java-library'
-apply plugin: 'kotlin'
 
 dependencies {
     compileOnly 'com.android.tools.lint:lint-api:26.1.3'
@@ -11,6 +10,3 @@ jar {
         attributes('Lint-Registry': 'com.luhuan.lint.ToolKtIssueRegistry')
     }
 }
-
-sourceCompatibility = "1.8"
-targetCompatibility = "1.8"

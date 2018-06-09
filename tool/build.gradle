@@ -1,15 +1,16 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 26
 
-
+    lintOptions {
+        abortOnError false
+    }
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -26,20 +27,11 @@ android {
 
 }
 
-//publish {
-//    userOrg = 'luhuanxml'      //bintray注册的用户名
-//    groupId = 'com.luhuan.tool'         //compile引用时的第1部分groupId
-//    artifactId = 'LogLint'     //compile引用时的第2部分项目名
-//    publishVersion = '0.0.2'    //compile引用时的第3部分版本号
-//    desc = 'This is rxjava in box'
-//    website = 'https://github.com/luhuanxml/RxSimple'
-//}
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    lintChecks project(':lint')
+    implementation project(':lint')
 }
+
 repositories {
     mavenCentral()
 }
