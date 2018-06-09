@@ -6,11 +6,21 @@ buildscript {
             compileSdk       : 27,
             compileSdkVersion: 27,
             targetSdkVersion : 27,
-            versionCode      : 1,
-            versionName      : '1.0.0',
+            buildToolsVersion: '27.0.3',
+            versionCode      : 3,
+            versionName      : '0.0.3',
 
             kotlin           : '1.2.41',
             androidTools     : '3.1.3',
+    ]
+
+    ext.bintr = [
+            userOrg       : 'luhuanxml',    //bintray注册的用户名
+            groupId       : 'com.luhuan.tool',       //compile引用时的第1部分groupId
+            artifactId    : 'LogLint',   //compile引用时的第2部分项目名
+            publishVersion: versions.versionName,  //compile引用时的第3部分版本号
+            desc          : 'This is a aar to lint Log and Toast,help developer to do word.',
+            website       : 'https://github.com/luhuanxml/LogLint'
     ]
 
     ext.deps = [
@@ -21,7 +31,8 @@ buildscript {
                     checks: 'com.android.tools.lint:lint-checks:26.1.3',
             ],
             Kolinjdk     : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
-            appcompat_v7 : "com.android.support:appcompat-v7:27.1.1"
+            appcompat_v7 : "com.android.support:appcompat-v7:27.1.1",
+            bintray      : 'com.novoda:bintray-release:+'
     ]
 
     repositories {
@@ -31,6 +42,7 @@ buildscript {
     dependencies {
         classpath deps.androidPlugin
         classpath deps.koltinPlugin
+        classpath deps.bintray
     }
 }
 
@@ -46,6 +58,11 @@ allprojects {
             encoding "UTF-8"
             charSet 'UTF-8'
             links "http://docs.oracle.com/javase/7/docs/api"
+            excludes = ['**/*.kt']
+            options.addStringOption('Xdoclint:none', '-quiet')
+            options.addStringOption('encoding', 'UTF-8')
+            options.addStringOption('charSet', 'UTF-8')
+
         }
     }
 }

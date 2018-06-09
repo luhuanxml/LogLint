@@ -2,9 +2,6 @@ package com.luhuan.simple;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-
-import com.luhuan.tool.LogKt;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -12,6 +9,5 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        Log.d("","");
     }
 }
