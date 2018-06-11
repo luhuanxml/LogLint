@@ -11,6 +11,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         logd("AAAA")
         "这就是TAG".logd("BBBBBBB")
-        Test().test()
+        Test().test(this)
     }
 }

@@ -1,4 +1,14 @@
 apply plugin: 'java-library'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = bintr_lint.userOrg      //bintray注册的用户名
+    groupId = bintr_lint.groupId         //compile引用时的第1部分groupId
+    artifactId = bintr_lint.artifactId     //compile引用时的第2部分项目名
+    publishVersion = bintr_lint.publishVersion    //compile引用时的第3部分版本号
+    desc = bintr_lint.desc
+    website = bintr_lint.website
+}
 
 dependencies {
     compileOnly deps.lint.api

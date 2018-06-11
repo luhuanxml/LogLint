@@ -42,8 +42,8 @@ public class ToastDetector extends Detector implements Detector.UastScanner {
         JavaEvaluator evaluator = context.getEvaluator();
         if (evaluator.isMemberInClass(method, "android.widget.Toast")) {
             LintFix fix = quickFixIssueLog(call);
-            context.report(ISSUE_TOAST, call, context.getLocation(call), "Using 'Log' instead of " +
-                    "'ToastKt'", fix);
+            context.report(ISSUE_TOAST, call, context.getLocation(call), "Using 'Toast' instead " +
+                    "of 'ToastKt'", fix);
         }
     }
 

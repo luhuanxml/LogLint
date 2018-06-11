@@ -1,14 +1,11 @@
 package com.luhuan.simple;
 
-import android.util.Log;
-
-import com.luhuan.tool.LogKt;
+import android.app.Activity;
+import android.widget.Toast;
 
 public class Test {
 
-    public void test(){
-        Log.d("","");
-        LogKt.logd("aaa", "test: ");
-        LogKt.logd(this, "aaaa");
+    public void test(Activity mActivity){
+        Toast.makeText(mActivity, "", Toast.LENGTH_SHORT).show();
     }
 }

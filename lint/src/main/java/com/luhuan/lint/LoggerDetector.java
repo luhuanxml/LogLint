@@ -41,12 +41,13 @@ public class LoggerDetector extends Detector implements Detector.UastScanner {
     public void visitMethod(JavaContext context, UCallExpression call, PsiMethod method) {
         JavaEvaluator evaluator = context.getEvaluator();
         if (evaluator.isMemberInClass(method, "android.util.Log")) {
-            LintFix fix = quickFixIssueLog(call);
-            context.report(ISSUE_LOG, call, context.getLocation(call), "Using 'Log' instead of 'ToolKt'", fix);
+            LintFix fix = quickFixIssueToast(call);
+            context.report(ISSUE_LOG, call, context.getLocation(call), "Using 'Log' instead of " +
+                    "'LogKt'", fix);
         }
     }
 
-    private LintFix quickFixIssueLog(UCallExpression logCall) {
+    private LintFix quickFixIssueToast(UCallExpression logCall) {
         List<UExpression> arguments = logCall.getValueArguments();
         UExpression tag = arguments.get(0);
         UExpression msg = arguments.get(1);

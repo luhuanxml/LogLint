@@ -36,7 +36,6 @@ publish {
 }
 
 dependencies {
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
     implementation deps.Kolinjdk
     //引用Java Library关键在这里
     lintChecks project(':lint')
