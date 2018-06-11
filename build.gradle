@@ -7,8 +7,8 @@ buildscript {
             compileSdkVersion: 27,
             targetSdkVersion : 27,
             buildToolsVersion: '27.0.3',
-            versionCode      : 3,
-            versionName      : '0.0.3',
+            versionCode      : 1,
+            versionName      : '0.0.1',
 
             kotlin           : '1.2.41',
             androidTools     : '3.1.3',
@@ -19,7 +19,7 @@ buildscript {
             groupId       : 'com.luhuan.tool',       //compile引用时的第1部分groupId
             artifactId    : 'LogLint',   //compile引用时的第2部分项目名
             publishVersion: versions.versionName,  //compile引用时的第3部分版本号
-            desc          : 'This is a aar to lint Log and Toast,help developer to do word.',
+            desc          : 'This is a aar to lint Log and Toast,help developer to do work.',
             website       : 'https://github.com/luhuanxml/LogLint'
     ]
 
@@ -38,6 +38,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://dl.bintray.com/luhuanxml/maven'
+        }
     }
     dependencies {
         classpath deps.androidPlugin
