@@ -1,55 +1,58 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.versions = [
-            applicationId    : 'com.luhuan.simple',
+            applicationId    : "com.luhuan.simple",
             minSdkVersion    : 16,
             compileSdk       : 27,
             compileSdkVersion: 27,
             targetSdkVersion : 27,
-            buildToolsVersion: '27.0.3',
+            buildToolsVersion: "27.0.3",
             versionCode      : 2,
-            versionName      : '0.0.2',
+            versionName      : "0.0.2",
 
-            kotlin           : '1.2.41',
-            androidTools     : '3.1.2',
+            kotlin           : "1.2.41",
+            androidTools     : "3.1.3",
+            rxjava           : "2.1.14",
+            rxandroid        : "2.0.2",
+            rxbinding        : "2.1.1"
     ]
 
     ext.bintr = [
-            userOrg       : 'luhuanxml',    //bintray注册的用户名
-            groupId       : 'com.luhuan.tool',       //compile引用时的第1部分groupId
-            artifactId    : 'LogLint',   //compile引用时的第2部分项目名
+            userOrg       : "luhuanxml",    //bintray注册的用户名
+            groupId       : "com.luhuan.tool",       //compile引用时的第1部分groupId
+            artifactId    : "LogLint",   //compile引用时的第2部分项目名
             publishVersion: versions.versionName,  //compile引用时的第3部分版本号
-            desc          : 'This is a aar to lint Log and Toast,help developer to do work.',
-            website       : 'https://github.com/luhuanxml/LogLint'
+            desc          : "This is a aar to lint Log and Toast,help developer to do work.",
+            website       : "https://github.com/luhuanxml/LogLint"
     ]
 
     ext.bintr_lint = [
-            userOrg       : 'luhuanxml',    //bintray注册的用户名
-            groupId       : 'com.luhuan.lint',       //compile引用时的第1部分groupId
-            artifactId    : 'LogLint-lint',   //compile引用时的第2部分项目名
+            userOrg       : "luhuanxml",    //bintray注册的用户名
+            groupId       : "com.luhuan.lint",       //compile引用时的第1部分groupId
+            artifactId    : "LogLint-lint",   //compile引用时的第2部分项目名
             publishVersion: versions.versionName,  //compile引用时的第3部分版本号
-            desc          : 'This is a aar to lint Log and Toast,help developer to do work.',
-            website       : 'https://github.com/luhuanxml/LogLint'
+            desc          : "This is a aar to lint Log and Toast,help developer to do work.",
+            website       : "https://github.com/luhuanxml/LogLint"
     ]
 
     ext.deps = [
             androidPlugin: "com.android.tools.build:gradle:${versions.androidTools}",
             koltinPlugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
             lint         : [
-                    api   : 'com.android.tools.lint:lint-api:26.1.3',
-                    checks: 'com.android.tools.lint:lint-checks:26.1.3',
+                    api   : "com.android.tools.lint:lint-api:26.1.3",
+                    checks: "com.android.tools.lint:lint-checks:26.1.3",
             ],
             Kolinjdk     : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
             appcompat_v7 : "com.android.support:appcompat-v7:27.1.1",
-            bintray      : 'com.novoda:bintray-release:+'
+            bintray      : "com.novoda:bintray-release:+",
+            rxjava       : "io.reactivex.rxjava2:rxjava:${versions.rxjava}",
+            rxandroid    : "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}",
+            rxbinding    : "com.jakewharton.rxbinding2:rxbinding:$versions.rxbinding",
     ]
 
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://dl.bintray.com/luhuanxml/maven'
-        }
     }
     dependencies {
         classpath deps.androidPlugin
@@ -68,12 +71,12 @@ allprojects {
     tasks.withType(Javadoc) {
         options {
             encoding "UTF-8"
-            charSet 'UTF-8'
+            charSet "UTF-8"
             links "http://docs.oracle.com/javase/7/docs/api"
-            excludes = ['**/*.kt']
-            options.addStringOption('Xdoclint:none', '-quiet')
-            options.addStringOption('encoding', 'UTF-8')
-            options.addStringOption('charSet', 'UTF-8')
+            excludes = ["**/*.kt"]
+            options.addStringOption("Xdoclint:none", "-quiet")
+            options.addStringOption("encoding", "UTF-8")
+            options.addStringOption("charSet", "UTF-8")
 
         }
     }
