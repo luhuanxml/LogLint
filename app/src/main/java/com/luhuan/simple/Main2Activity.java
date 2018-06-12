@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.luhuan.tool.GlideApp;
 import com.luhuan.tool.GlideModule;
 import com.luhuan.tool.GlideModuleKt;
+import com.luhuan.tool.PixelKt;
 import com.luhuan.tool.RxBus;
 
 import kotlin.Pair;
@@ -23,6 +24,8 @@ public class Main2Activity extends AppCompatActivity {
         Pair<String,Object> pair2=new Pair<>("2",2);
         Pair[] pairs= new Pair[]{pair1, pair2};
         RxBus.INSTANCE.post(1,"你好");
+        PixelKt.getDp(10);
+        PixelKt.getPx(20);
     }
     
 }
